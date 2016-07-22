@@ -1,5 +1,5 @@
 require(openxlsx)
-fileName <-"2011 employee.xlsx"
+fileName <-"2015 employee.xlsx"
 dataFrame <- read.xlsx(fileName,colNames = T)
 dataFrame[dataFrame=="N"]<-NA
 dat <- as.data.frame(sapply(dataFrame, as.numeric)) #<- sapply is here
@@ -16,5 +16,5 @@ dat$motive<-rowMeans(subset(dat,
                            select=c("Q6","Q16","Q21","Q60")),
                     na.rm=T)
 dat$climate<-rowMeans(subset(dat,select=c("Leader","peer","stake","motive")))
-newData<-subset(dat,select=c("Codigo","CNPJ","Leader","peer","stake","motive","climate"))
-write.xlsx(newData,"2011-cnpj-summary.xlsx")
+newData<-subset(dat,select=c("CNPJ","Leader","peer","stake","motive","climate"))
+write.xlsx(newData,"2015-cnpj-summary.xlsx")
