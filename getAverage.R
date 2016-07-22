@@ -16,4 +16,5 @@ dat$motive<-rowMeans(subset(dat,
                            select=c("Q6","Q16","Q21","Q60")),
                     na.rm=T)
 dat$climate<-rowMeans(subset(dat,select=c("Leader","peer","stake","motive")))
-newData<-subset(dat,select=c("Leader","peer","stake","motive","climate"))
+newData<-subset(dat,select=c("Codigo","CNPJ","Leader","peer","stake","motive","climate"))
+write.xlsx(newData,"2011-cnpj-summary.xlsx")
